@@ -12,3 +12,20 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+const makeGallery = (images) => {
+  const currentEl = document.querySelector('#gallery');
+ 
+  currentEl.classList.add('ul-container')
+  currentEl.style.display = 'flex';
+  currentEl.style.listStyle = 'none';
+ 
+  
+  const makeAddEl = images.reduce((acc ,el) => 
+    acc + `<li class="li-item"><img class="image-item" src="${el.url} alt="${el.alt}" width="280px" height="160px></li>`,
+  "")
+
+  currentEl.insertAdjacentHTML('afterbegin', makeAddEl);
+    const liItemEl = currentEl.querySelector('.image-item')
+   liItemEl.style.marginRight = '30px'
+}
+makeGallery(images)
